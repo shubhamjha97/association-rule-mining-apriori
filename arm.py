@@ -3,6 +3,8 @@ import itertools
 from time import time
 import numba as nb
 
+MINSUP=100
+
 def timeit(fn):
 	def wrapper(*args, **kwargs):
 		start=time()
@@ -46,20 +48,26 @@ def apriori_gen(l_prev):
 				l_curr.append(temp_c)
 	return l_curr
 
+def subset(c_list, transactions):
+	return {}
+
 def frequent_itemset_generation(data_path):
 	transactions, items=load_data(data_path)
 	print('Found', len(transactions), 'transactions,', len(items), 'items.')
 	map_=create_map(items)
 	one_itemset=[[itemset] for itemset in items][0:100]
 	items_mapped=[applymap(itemset, map_) for itemset in one_itemset]
-	c_dict={}
-	k=1
-	c_dict[1]=items_mapped
-	for i in range(10):
-		k=i+2
-		c_dict[k]=apriori_gen(c_dict[k-1])
-		print(k, len(c_dict[k]))
-
+	#c_dict={}
+	#k=1
+	l_current=items_mapped
+	for i in range(10):	###############
+		c_current=apriori_gen(l_current) ##############
+		for t in transactions:
+			C_t=subset(c_current, transactions)
+		l_current=[]
+		for c in C_t.keys():
+			if C_t[c]:
+				l_current.append(c)
 if __name__=='__main__':
 	data_path='data/groceries.csv'
 	frequent_itemset_generation(data_path)
