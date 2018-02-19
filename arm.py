@@ -3,7 +3,9 @@ import itertools
 from time import time
 import numba as nb
 
-MINSUP=100
+MINSUP=3
+HASH_DENOMINATOR=10
+K_MAX=10
 
 def timeit(fn):
 	def wrapper(*args, **kwargs):
@@ -48,8 +50,17 @@ def apriori_gen(l_prev):
 				l_curr.append(temp_c)
 	return l_curr
 
+@timeit
 def subset(c_list, transactions):
-	return {}
+	candidate_counts={}
+	for transaction in transactions:
+		for candidate in c_list:
+			if set(candidate).issubset(set(transaction)):
+				candidate_counts[tuple(candidate)]=candidate_counts.get(tuple(candidate), 0)
+				#print(candidate_counts[tuple(candidate)])
+				candidate_counts[tuple(candidate)]+=1
+	print(candidate_counts)
+	return candidate_counts
 
 def frequent_itemset_generation(data_path):
 	transactions, items=load_data(data_path)
@@ -57,17 +68,25 @@ def frequent_itemset_generation(data_path):
 	map_=create_map(items)
 	one_itemset=[[itemset] for itemset in items][0:100]
 	items_mapped=[applymap(itemset, map_) for itemset in one_itemset]
-	#c_dict={}
-	#k=1
+	transactions_mapped = [applymap(transaction, map_) for transaction in transactions]
 	l_current=items_mapped
-	for i in range(10):	###############
+
+	L_final=[]
+
+	for i in range(K_MAX):	###############
 		c_current=apriori_gen(l_current) ##############
-		for t in transactions:
-			C_t=subset(c_current, transactions)
-		l_current=[]
-		for c in C_t.keys():
-			if C_t[c]:
-				l_current.append(c)
+		if len(c_current):
+			C_t=subset(c_current, transactions_mapped)
+			l_current=[]
+			for c in C_t.keys():
+				if C_t[c]>MINSUP:
+					l_current.append(c)
+			L_final.append(l_current)
+		else:
+			break
+
+	return L_final
+
 if __name__=='__main__':
 	data_path='data/groceries.csv'
 	frequent_itemset_generation(data_path)
