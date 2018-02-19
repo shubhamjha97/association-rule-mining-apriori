@@ -4,11 +4,14 @@ from time import time
 #import numba as nb
 import pickle
 import os
+import numpy as np
+
+####Using lift instead of confidence
 
 MINSUP=50
 HASH_DENOMINATOR=10
 K_MAX=10
-MIN_CONF=0.0000001
+MIN_CONF=0.01
 
 def timeit(fn):
 	def wrapper(*args, **kwargs):
@@ -72,6 +75,7 @@ def frequent_itemset_generation(data_path):
 	transactions, items = load_data(data_path)
 	print('Found', len(transactions), 'transactions,', len(items), 'items.')
 	map_, reverse_map = create_map(items)
+	pickle.dump(reverse_map, open('reverse_map.pkl', 'wb+'))
 	one_itemset = [[itemset] for itemset in items]
 	items_mapped = [applymap(itemset, map_) for itemset in one_itemset]
 	transactions_mapped = [applymap(transaction, map_) for transaction in transactions]
@@ -108,16 +112,14 @@ def generate_rules(frequent_items):
 		k=len(list(k_itemset.keys())[0])
 		if k==1:
 			continue
-
 		for itemset, support in k_itemset.items():
 			H_curr=[[x] for x in itemset]
 			print(H_curr)
 			to_remove=[]
 			for h in H_curr:
-				print('h', h)
 				X=tuple(sorted(set(itemset)-set(h)))
 				Y=tuple(sorted(h))
-				confidence=support/frequent_items[k-2][X]
+				confidence=support/(frequent_items[k-2][X]*np.sqrt(frequent_items[0][Y]))
 				if confidence>MIN_CONF:
 					rule=[]
 					rule.append(X)
@@ -125,25 +127,17 @@ def generate_rules(frequent_items):
 					rules.append(rule)
 				else:
 					to_remove.append(h)
-				if k==2:
-					break
+
 			H_curr=[x for x in H_curr if x not in to_remove]
-			#print('updated h_next', H_next)
-
-
 
 			for m in range(1,k-1):
 				if k > m+1:
 					H_next=apriori_gen(H_curr)
-					#print('h_next', H_next)
 					to_remove=[]
 					for h in H_next:
 						X=tuple(sorted(set(itemset)-set(h)))
 						Y=tuple(sorted(h))
-						#print('k', k, 'm', m)
-						#print('X:', X, 'Y:', Y)
-						confidence=support/frequent_items[k-m-2][X]
-						#print('X:', X, 'Y:', Y, 'conf', confidence)
+						confidence=support/(frequent_items[k-m-2][X]*np.sqrt(frequent_items[m][Y]))
 						if confidence>MIN_CONF:
 							rule=[]
 							rule.append(X)
@@ -152,7 +146,6 @@ def generate_rules(frequent_items):
 						else:
 							to_remove.append(h)
 					H_next=[x for x in H_next if x not in to_remove]
-					#print('updated h_next', H_next)
 					H_curr=H_next
 				else:
 					break	
@@ -160,16 +153,18 @@ def generate_rules(frequent_items):
 
 
 def display_rules(rules, write=False):
+	reverse_map=pickle.load(open('reverse_map.pkl', 'rb'))
 	with open('output.txt', 'w+') as f:
 		for rule in rules:
 			X=rule[0]
 			Y=rule[1]
-			print(X, '--->', Y)
-			f.write(str(X)+'--->'+str(Y)+'\n')
+			print([reverse_map[x] for x in X], '--->', [reverse_map[y] for y in Y])
+
+			f.write(str([reverse_map[x] for x in X])+' ---> '+str([reverse_map[y] for y in Y])+'\n')
 
 if __name__=='__main__':
 	data_path = 'data/groceries.csv'
 	frequent_items = frequent_itemset_generation(data_path)
 	rules = generate_rules(frequent_items)
-	#print(rules)
 	display_rules(rules, write=True)
+	print(len(rules))
