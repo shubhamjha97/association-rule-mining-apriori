@@ -3,7 +3,7 @@ import itertools
 from time import time
 import numba as nb
 
-MINSUP=3
+MINSUP=10
 HASH_DENOMINATOR=10
 K_MAX=10
 
@@ -57,9 +57,7 @@ def subset(c_list, transactions):
 		for candidate in c_list:
 			if set(candidate).issubset(set(transaction)):
 				candidate_counts[tuple(candidate)]=candidate_counts.get(tuple(candidate), 0)
-				#print(candidate_counts[tuple(candidate)])
 				candidate_counts[tuple(candidate)]+=1
-	print(candidate_counts)
 	return candidate_counts
 
 def frequent_itemset_generation(data_path):
@@ -69,24 +67,31 @@ def frequent_itemset_generation(data_path):
 	one_itemset=[[itemset] for itemset in items][0:100]
 	items_mapped=[applymap(itemset, map_) for itemset in one_itemset]
 	transactions_mapped = [applymap(transaction, map_) for transaction in transactions]
-	l_current=items_mapped
+	l_current= subset(items_mapped, transactions_mapped)
 
 	L_final=[]
+	#L_final.append(l_current)
 
-	for i in range(K_MAX):	###############
-		c_current=apriori_gen(l_current) ##############
+	for i in range(K_MAX):
+		c_current=apriori_gen(list(l_current.keys()))
 		if len(c_current):
 			C_t=subset(c_current, transactions_mapped)
-			l_current=[]
+			l_current={}
 			for c in C_t.keys():
 				if C_t[c]>MINSUP:
-					l_current.append(c)
-			L_final.append(l_current)
+					l_current[tuple(c)] = C_t[c]
+			if len(l_current):
+				print(l_current)
+				L_final.append(l_current)
 		else:
 			break
 
 	return L_final
 
+def generate_rules():
+	pass
+
 if __name__=='__main__':
 	data_path='data/groceries.csv'
-	frequent_itemset_generation(data_path)
+	frequent_items=frequent_itemset_generation(data_path)
+	generate_rules(frequent_items)
