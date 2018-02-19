@@ -8,7 +8,7 @@ import os
 MINSUP=50
 HASH_DENOMINATOR=10
 K_MAX=10
-MIN_CONF=0.3
+MIN_CONF=0.0000001
 
 def timeit(fn):
 	def wrapper(*args, **kwargs):
@@ -52,6 +52,7 @@ def apriori_gen(l_prev):
 				temp_c = []
 				temp_c.extend(temp_a)
 				temp_c.append(temp_b[-1])
+				temp_c=sorted(temp_c)
 				c_curr.append(temp_c)
 	return c_curr
 
@@ -74,10 +75,17 @@ def frequent_itemset_generation(data_path):
 	one_itemset = [[itemset] for itemset in items]
 	items_mapped = [applymap(itemset, map_) for itemset in one_itemset]
 	transactions_mapped = [applymap(transaction, map_) for transaction in transactions]
-	l_current = subset(items_mapped, transactions_mapped)
+	temp_l_current = subset(items_mapped, transactions_mapped)
+
+	#l_current={}
+
+	#for t in temp_l_current.keys():
+	#	if temp_l_current[t] > MINSUP:
+	#		l_current[tuple(t)] = temp_l_current[t]
 
 	L_final = []
-	L_final.append(l_current)
+	L_final.append(temp_l_current)
+	l_current=temp_l_current
 
 	for i in range(K_MAX):
 		c_current = apriori_gen(list(l_current.keys()))
@@ -86,9 +94,8 @@ def frequent_itemset_generation(data_path):
 			l_current = {}
 			for c in C_t.keys():
 				if C_t[c] > MINSUP:
-					l_current[tuple(c)] = C_t[c]
+					l_current[tuple(sorted(c))] = C_t[c]
 			if len(l_current):
-				print(l_current)
 				L_final.append(l_current)
 		else:
 			break
@@ -97,34 +104,50 @@ def frequent_itemset_generation(data_path):
 
 def generate_rules(frequent_items):
 	rules=[]
-	H_curr=frequent_items[0]
 	for k_itemset in frequent_items:
 		k=len(list(k_itemset.keys())[0])
 		if k==1:
 			continue
-		m=1
-		if k > m+1:
-			for itemset, support in k_itemset.items():
-				H_next=apriori_gen(list(H_curr.keys()))
-				for h in H_next:
-					X=tuple(set(itemset)-set(h))
-					Y=tuple(h)
-					
-					confidence=support/frequent_items[k-1][X]
-					print('X:', X, 'Y:', Y, 'conf', confidence)
-					if confidence>MIN_CONF:
-						rule=[]
-						rule.append(X)
-						rule.append(Y)
-						rules.append(rule)
+		for itemset, support in k_itemset.items():
+			H_curr=[[x] for x in itemset]
+			for m in range(1,k-1):
+				if k > m+1:
+					H_next=apriori_gen(H_curr)
+					print('h_next', H_next)
+					to_remove=[]
+					for h in H_next:
+						X=tuple(sorted(set(itemset)-set(h)))
+						Y=tuple(sorted(h))
+						#print('k', k, 'm', m)
+						#print('X:', X, 'Y:', Y)
+						confidence=support/frequent_items[k-m-2][X]
+						#print('X:', X, 'Y:', Y, 'conf', confidence)
+						if confidence>MIN_CONF:
+							rule=[]
+							rule.append(X)
+							rule.append(Y)
+							rules.append(rule)
+						else:
+							to_remove.append(h)
+					H_next=[x for x in H_next if x not in to_remove]
+					#print('updated h_next', H_next)
+					H_curr=H_next
+				else:
+					break	
+	return rules
 
 
 def display_rules(rules, write=False):
-	pass
-
+	with open('output.txt', 'w+') as f:
+		for rule in rules:
+			X=rule[0]
+			Y=rule[1]
+			print(X, '--->', Y)
+			f.write(str(X)+'--->'+str(Y)+'\n')
 
 if __name__=='__main__':
 	data_path = 'data/groceries.csv'
 	frequent_items = frequent_itemset_generation(data_path)
 	rules = generate_rules(frequent_items)
+	#print(rules)
 	display_rules(rules, write=True)
