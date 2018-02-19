@@ -40,7 +40,7 @@ def applymap(transaction, map_):
 		ret.append(map_[item])
 	return ret
 
-@timeit
+#@timeit
 def apriori_gen(l_prev):
 	n = len(l_prev)
 	c_curr = []
@@ -56,7 +56,7 @@ def apriori_gen(l_prev):
 				c_curr.append(temp_c)
 	return c_curr
 
-@timeit
+#@timeit
 def subset(c_list, transactions):
 	candidate_counts={}
 	for transaction in transactions:
@@ -108,12 +108,34 @@ def generate_rules(frequent_items):
 		k=len(list(k_itemset.keys())[0])
 		if k==1:
 			continue
+
 		for itemset, support in k_itemset.items():
 			H_curr=[[x] for x in itemset]
+			print(H_curr)
+			to_remove=[]
+			for h in H_curr:
+				print('h', h)
+				X=tuple(sorted(set(itemset)-set(h)))
+				Y=tuple(sorted(h))
+				confidence=support/frequent_items[k-2][X]
+				if confidence>MIN_CONF:
+					rule=[]
+					rule.append(X)
+					rule.append(Y)
+					rules.append(rule)
+				else:
+					to_remove.append(h)
+				if k==2:
+					break
+			H_curr=[x for x in H_curr if x not in to_remove]
+			#print('updated h_next', H_next)
+
+
+
 			for m in range(1,k-1):
 				if k > m+1:
 					H_next=apriori_gen(H_curr)
-					print('h_next', H_next)
+					#print('h_next', H_next)
 					to_remove=[]
 					for h in H_next:
 						X=tuple(sorted(set(itemset)-set(h)))
