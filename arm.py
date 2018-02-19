@@ -64,7 +64,7 @@ def frequent_itemset_generation(data_path):
 	transactions, items=load_data(data_path)
 	print('Found', len(transactions), 'transactions,', len(items), 'items.')
 	map_=create_map(items)
-	one_itemset=[[itemset] for itemset in items][0:100]
+	one_itemset=[[itemset] for itemset in items]
 	items_mapped=[applymap(itemset, map_) for itemset in one_itemset]
 	transactions_mapped = [applymap(transaction, map_) for transaction in transactions]
 	l_current= subset(items_mapped, transactions_mapped)
@@ -88,7 +88,7 @@ def frequent_itemset_generation(data_path):
 
 	return L_final
 
-def generate_rules():
+def generate_rules(frequent_items):
 	pass
 
 if __name__=='__main__':
