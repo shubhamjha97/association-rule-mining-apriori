@@ -18,8 +18,9 @@ class Tree:
 		self.children={}
 		self.k=k
 		self.max_leaf_size=max_leaf_size
-		self.build_tree(c_list)
 		self.isTree=True
+		self.build_tree(c_list)
+		
 
 	def update_tree(self):
 		for child in self.children:
@@ -43,12 +44,43 @@ class Tree:
 					child.children[tuple(candidate)]+=1
 					print('count updated to', child.children[tuple(candidate)])
 
+def generate_subsets(transaction, k):
+	res=[]
+	n = len(transaction)
+	transaction.sort()
+	# print(n)
+	
+
+	def recurse(transaction, k, i=0, curr=[]):
+		print(k)
+		if k==1:
+			print('k=0 -> ', curr)
+			for j in range(i,n):
+				res.append(curr + [transaction[j]])
+				print('hsad')
+
+			# curr.append(transaction[i])
+			# res.append(curr)
+			# curr[:]=[]
+			return None
+
+		for j in range(i,n-k+1):
+			print(curr)
+			temp= curr+ [transaction[j]]
+			# curr.append(transaction[j])
+			recurse(transaction, k-1, j+1, temp[:])
+
+	recurse(transaction, k)
+	print(res)
+	return res
+
 
 if __name__=='__main__':
-	temp_list=[[1,2,3],[2,3,4],[3,5,6],[4,5,6],[5,7,9],[7,8,9],[4,7,9]]
-	temp_list_1=[[1], [2], [3], [4], [5], [6], [7], [8], [9]]
-	t=Tree(temp_list_1, k=3, max_leaf_size=3, depth=0)
-	print(len(t.children))
-	t.check([1])
+	# temp_list=[[1,2,3],[2,3,4],[3,5,6],[4,5,6],[5,7,9],[7,8,9],[4,7,9]]
+	# temp_list_1=[[1], [2], [3], [4], [5], [6], [7], [8], [9]]
+	#t=Tree(temp_list_1, k=3, max_leaf_size=3, depth=0)
+	#print(len(t.children))
+	#t.check([1])
+	generate_subsets([1,2,3,5,6], 3)
 	# for x in t.children.keys():
 	# 	print(t.children[x].children)

@@ -91,7 +91,7 @@ def frequent_itemset_generation(data_path):
 	L_final.append(temp_l_current)
 	l_current=temp_l_current
 
-	for i in range(K_MAX):
+	for i in range(K_MAX):              ######################### change to while
 		c_current = apriori_gen(list(l_current.keys()))
 		if len(c_current):
 			C_t = subset(c_current, transactions_mapped)
@@ -114,7 +114,6 @@ def generate_rules(frequent_items):
 			continue
 		for itemset, support in k_itemset.items():
 			H_curr=[[x] for x in itemset]
-			print(H_curr)
 			to_remove=[]
 			for h in H_curr:
 				X=tuple(sorted(set(itemset)-set(h)))
@@ -159,7 +158,6 @@ def display_rules(rules, write=False):
 			X=rule[0]
 			Y=rule[1]
 			print([reverse_map[x] for x in X], '--->', [reverse_map[y] for y in Y])
-
 			f.write(str([reverse_map[x] for x in X])+' ---> '+str([reverse_map[y] for y in Y])+'\n')
 
 if __name__=='__main__':
