@@ -60,7 +60,7 @@ We have used hash function of the followinng format-
 where k is chosen by the user.
 
 ## Equations used
-```python
+```
 confidence(X->Y) = support(X U Y) / support(X)
 support(X, Y) = support count(X, Y) / total dataset size
 ```
@@ -102,9 +102,7 @@ Frequent itemset (support count)
 
 ## Machine specs:
 Processor: i7-7500U
-
 Ram: 16 GB DDR4
-
 OS: Ubuntu 16.04 LTS
 
 ## Results
