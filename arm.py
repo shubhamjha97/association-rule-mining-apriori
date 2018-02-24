@@ -6,9 +6,9 @@ import os
 from hash_tree import Tree, generate_subsets
 
 # Important variables
-MINSUP = 10 # Minimum support
+MINSUP = 60 # Minimum support
 HASH_DENOMINATOR = 10 # Denominator of the hash function
-MIN_CONF = 0.1 # Minimum confidence
+MIN_CONF = 0.5 # Minimum confidence
 
 
 # Timig decorator. Used to measure exeecution time of functions.

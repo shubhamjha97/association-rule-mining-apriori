@@ -24,26 +24,23 @@ Course Assignment for CS F415- Data Mining @ BITS Pilani, Hyderabad Campus.
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## Introduction
 Association rules mining is a rule-based method for discovering interesting relations between variables in large databases. It is intended to identify strong rules discovered in databases using some measures of interestingness. We used confidence as a measure of interestingness.
-The main purpose of this project is to get an in depth understanding of how the Apriori algorithm works.
+**The main purpose of this project is to get an in depth understanding of how the Apriori algorithm works.**
 We implemented support counting using hash trees. The difference between out approach is significant as demonstrated by the following run times (we used the same value of ```MINSUP``` and ```MIN_CONF``` for both) -
 
 Support counting using brute force- ```22.5s```
 Support counting using hash tree- ```5.9s ```
 
-For the sake of comparison, we have left in the code for the brute force method commented. Please feel free to uncomment it and try it out.
+*For the sake of comparison, we have left in the code for the brute force method commented. Please feel free to uncomment it and try it out.*
 
 *More on [Association rule learning](https://en.wikipedia.org/wiki/Association_rule_learning)*
 
 ## Data
-We used the Groceries Market Basket Dataset, which can be found [here](http://www.sci.csueastbay.edu/~esuess/classes/Statistics_6620/Presentations/ml13/groceries.csv). The dataset contains **9835** transactions by customers shopping for groceries. The data contains **169** unique items. The data can be found in the folder **data**.
+We used the **Groceries Market Basket Dataset**, which can be found [here](http://www.sci.csueastbay.edu/~esuess/classes/Statistics_6620/Presentations/ml13/groceries.csv). The dataset contains **9835 transactions** by customers shopping for groceries. The data contains **169 unique items**. The data can be found in the folder **'data'**.
 
 ## Instructions to run the scripts
-Run the following commands:
+Run the following command:
 
 ##### Create the train matrix and the mappings
 ```python
@@ -63,8 +60,11 @@ We have used hash function of the followinng format-
 where k is chosen by the user.
 
 ## Equations used
+```python
 confidence(X->Y) = support(X U Y) / support(X)
 support(X, Y) = support count(X, Y) / total dataset size
+```
+
 
 ## Pre-processing done
 The csv file was read transaction by transaction and each transaction was saved as a list.
@@ -84,15 +84,21 @@ association-rule-mining-apriori/
 +--  outputs(destination to save the outputs generated)
 |   +-- frequent_itemsets.txt(all the frequent itemsets presented in the prescribed format)
 |   +-- association_rules.txt(all the interesting association rules mined and presented in the prescribed format)
-+--  results(folder containing the required results)
++--  results(folder containing the results of this project)
 +--  reverse_map.pkl(mapping from items to index in pickled format)
 ```
 
 ## Prescribed format of output
 ##### Association Rules
+```
 Precedent (itemset (support count)) ---> Antecedent (itemset (support count)) - confidence value
+```
+
 ##### Frequent itemsets
+```
 Frequent itemset (support count)
+```
+
 
 ## Machine specs:
 Processor: i7-7500U
@@ -109,6 +115,8 @@ OS: Ubuntu 16.04 LTS
 | Low confidence(MIN_CONF=0.1) High support(MINSUP=60)              | 725   |    1189    |
 | High confidence(MIN_CONF=0.5) Low support(MINSUP=10)              | 11390   |    4187    |
 | Low confidence(MIN_CONF=0.1) Low support(MINSUP=10)              | 11390   |    35196    |
+
+All the frequent itemsets and rules generated using the above mentioned configurations can be found in the 'results' folder.
 
 ## Members
 [Shubham Jha](http://github.com/shubhamjha97)
