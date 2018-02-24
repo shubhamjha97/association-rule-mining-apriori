@@ -5,11 +5,12 @@ from time import time
 import pickle
 import os
 import numpy as np
+from hash_tree import Tree, generate_subsets
 
 ####Using lift instead of confidence
 
 MINSUP=50
-HASH_DENOMINATOR=10
+HASH_DENOMINATOR=30
 K_MAX=10
 MIN_CONF=0.01
 
@@ -59,14 +60,27 @@ def apriori_gen(l_prev):
 				c_curr.append(temp_c)
 	return c_curr
 
-#@timeit
+# Brute force subset generation and support counting
+# @timeit
+# def subset(c_list, transactions):
+# 	candidate_counts={}
+# 	for transaction in transactions:
+# 		for candidate in c_list:
+# 			if set(candidate).issubset(set(transaction)):
+# 				candidate_counts[tuple(candidate)] = candidate_counts.get(tuple(candidate), 0)
+# 				candidate_counts[tuple(candidate)] += 1
+# 	return candidate_counts
+
+@timeit
 def subset(c_list, transactions):
 	candidate_counts={}
+	t=Tree(c_list, k=HASH_DENOMINATOR, max_leaf_size=100)
 	for transaction in transactions:
-		for candidate in c_list:
-			if set(candidate).issubset(set(transaction)):
-				candidate_counts[tuple(candidate)] = candidate_counts.get(tuple(candidate), 0)
-				candidate_counts[tuple(candidate)] += 1
+		subsets =generate_subsets(transaction, len(c_list[0]))
+		for sub in subsets:
+			t.check(sub, update=True)
+	for candidate in c_list:
+		candidate_counts[tuple(candidate)] = t.check(candidate, update=False)
 	return candidate_counts
 
 def frequent_itemset_generation(data_path):
@@ -88,7 +102,7 @@ def frequent_itemset_generation(data_path):
 	#		l_current[tuple(t)] = temp_l_current[t]
 
 	L_final = []
-	L_final.append(temp_l_current)
+	L_final.append(temp_l_current) ##################check count of l
 	l_current=temp_l_current
 
 	for i in range(K_MAX):              ######################### change to while
@@ -103,7 +117,7 @@ def frequent_itemset_generation(data_path):
 				L_final.append(l_current)
 		else:
 			break
-	pickle.dump(L_final, open('l_final.pkl', 'wb+'))
+	pickle.dump(L_final, open('l_final.pkl', 'wb+'))  ###################### pickle dump
 	return L_final
 
 def generate_rules(frequent_items):
@@ -150,7 +164,6 @@ def generate_rules(frequent_items):
 					break	
 	return rules
 
-
 def display_rules(rules, write=False):
 	reverse_map=pickle.load(open('reverse_map.pkl', 'rb'))
 	with open('output.txt', 'w+') as f:
@@ -164,5 +177,6 @@ if __name__=='__main__':
 	data_path = 'data/groceries.csv'
 	frequent_items = frequent_itemset_generation(data_path)
 	rules = generate_rules(frequent_items)
+	print(frequent_items)
 	display_rules(rules, write=True)
 	print(len(rules))
