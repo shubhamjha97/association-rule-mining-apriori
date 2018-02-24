@@ -3,13 +3,15 @@ import itertools
 from time import time
 import pickle
 import os
-# import numpy as np
 from hash_tree import Tree, generate_subsets
 
-MINSUP= 50
-HASH_DENOMINATOR=10
-MIN_CONF=0.5
+# Important variables
+MINSUP = 10 # Minimum support
+HASH_DENOMINATOR = 10 # Denominator of the hash function
+MIN_CONF = 0.1 # Minimum confidence
 
+
+# Timig decorator. Used to measure exeecution time of functions.
 def timeit(fn):
 	def wrapper(*args, **kwargs):
 		start = time()
@@ -163,14 +165,14 @@ def generate_rules(frequent_items):
 def display_rules(rules, frequent_items, write=False):
 	reverse_map=pickle.load(open('reverse_map.pkl', 'rb'))
 	bad_chars="[]''"
-	with open('association_rules.txt', 'w+') as f:
+	with open('outputs/association_rules.txt', 'w+') as f:
 		for rule in rules:
 			X, Y=list(rule.keys())[0]
 			confidence=list(rule.values())[0]
 			print([reverse_map[x] for x in X], '--->', [reverse_map[y] for y in Y], '- conf('+ str(confidence)+ ')')
 			f.write(str([reverse_map[x] for x in X]).strip(bad_chars).replace("'", '')+' ---> '+str([reverse_map[y] for y in Y]).strip(bad_chars).replace("'", '') + ' - conf('+ str(confidence)+ ')'+'\n')
 
-	with open('frequent_itemsets.txt', 'w+') as f:
+	with open('outputs/frequent_itemsets.txt', 'w+') as f:
 		for k_itemset in frequent_items:
 			for itemset, support in k_itemset.items():
 				f.write(str([reverse_map[x] for x in itemset]).strip(bad_chars).replace("'", '')+' ('+str(support)+')'+'\n')
@@ -180,4 +182,7 @@ if __name__=='__main__':
 	frequent_items = frequent_itemset_generation(data_path)
 	rules = generate_rules(frequent_items)
 	display_rules(rules, frequent_items, write=True)
-	print(len(rules))
+	no_itemsets=0
+	for x in frequent_items:
+		no_itemsets+=len(x)
+	print('No of rules:',len(rules), 'No of itemsets:', no_itemsets)
