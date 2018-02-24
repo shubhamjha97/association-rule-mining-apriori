@@ -3,7 +3,7 @@ import itertools
 from time import time
 import pickle
 import os
-import numpy as np
+# import numpy as np
 from hash_tree import Tree, generate_subsets
 
 MINSUP= 50

@@ -53,54 +53,26 @@ Support counting using brute force- ```5.9 s ```
 ## Data
 We used the Groceries Market Basket Dataset, which can be found [here](http://www.sci.csueastbay.edu/~esuess/classes/Statistics_6620/Presentations/ml13/groceries.csv). The dataset contains *9835* transactions by customers shopping for groceries. The data contains *169* unique items. The data can be found in the folder *data*.
 
-The data was shuffled and then split to create train(80%) and test(20%) sets.
-
-|                 | Ratings | Unique users | Unique movies |
-|-----------------|---------|--------------|---------------|
-| Overall Dataset | 1000209 | 6040         | 3706          |
-| Train Set (80%) | 800167  | 6040         | 3682          |
-| Test Set (20%)  | 200041  | 6036         | 3462          |
-
 ## Directory Structure:
 
 ```
-recsys_final/
+association-rule-mining-apriori/
 +-- data
-|   +-- ratings.dat (original data file containing ratings)
-+-- temp_data
-|   +-- movie_map.pkl (movie_map in pickled format) 
-|   +-- sigma.npy (numpy file containing sigma matrix in dense representation)
-|   +-- test_table.pkl (pickled pandas dataframe conaining the test data) 
-|   +-- train.npz (numpy file containing the train matrix in sparse representation) 
-|   +-- U.npy (numpy file containing U matrix in dense representation)
-|   +-- user_map.pkl (user_map in pickled format)
-|   +-- V_t.npy (numpy file containing transpose of V matrix in dense representation)
-+--  create_matrices.py(python script to create read the data, adn create train matrix, test dataframe and user and movie mappings and save them to disk)
-+-- collaborative_filtering.py(python script to perform collaborative filtering)
-+--  CUR.py(python script to perform collaborative filtering using CUR decomposition)
-+--  evaluation.py (python script containing functions for evaluation metrics)
-+--  SVD_module.py (python script to perform collaborative filtering using SVD)
-+--  recsys_utils.py (python script containing functions for loading matrices and mappings) 
+|   +-- groceries.csv (original data file containing transactions)
++--  arm.py(python script to read the data, mine frequent itemsets and interesting rules)
++--  hash_tree.py(python file containing the Tree and Node classes used to build the hash tree for support counting)
++--  timing_wrapper.py(python decorator used to measure execution time of functions)
++--  l_final.pkl(all the frequent itemsets in pickled format)
++--  frequent_itemsets.txt(all the frequent itemsets presented in the prescribed format)
++--  association_rules.txt(all the interesting association rules mined and presented in the prescribed format)
++--  reverse_map.pkl(mapping from items to index in pickled format)
 ```
 
-## Basic Collaborative Filtering
-While predicting ratings, the ratings of the 10 most similar users are used.
-
-*More on [Collaborative Filtering](https://en.wikipedia.org/wiki/)*
-
-## Collaborative Filtering with baseline
-While predicting ratings, the ratings of the 10 most similar users are used.
-
-
-## SVD
-No. of singular values retained= 1088 (90% energy)
-
-*More on [SVD](https://en.wikipedia.org/wiki/Singular-value_decomposition)*
-
-## CUR
-No. of columns and rows retained= 900
-
-*More on [CUR](https://en.wikipedia.org/wiki/CUR_matrix_approximation)*
+## Prescribed format of output
+##### Association Rules
+Precedent (itemset (support count)) ---> Antecedent (itemset (support count)) - confidence value
+##### Frequent itemsets
+Frequent itemset (support count)
 
 ## Machine specs:
 Processor: i7-7500U
