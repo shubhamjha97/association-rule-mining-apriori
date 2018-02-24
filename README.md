@@ -63,11 +63,10 @@ support(X, Y) = support count(X, Y) / total dataset size
 ## Pre-processing done
 The csv file was read transaction by transaction and each transaction was saved as a list.
 A mapping was created from the unique items in the dataset to integers so that each item corresponded to a unique integer.
-The entire data was then mapped to integers to reduce the storage and computational requirement.
-A reverse 
+The entire data was mapped to integers to reduce the storage and computational requirement.
+A reverse mapping was created from the integers to the items, so that the item names could be written in the final output file.
 
 ## Directory Structure:
-
 ```
 association-rule-mining-apriori/
 +-- data

@@ -1064,6 +1064,14 @@ MIN_CONF - Minimum confidence
 <p>We have used hash function of the followinng format-<br />
 <code>x(mod)k</code><br />
 where k is chosen by the user.</p>
+<h2 id="equations-used"><a name="user-content-equations-used" href="#equations-used" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Equations used</h2>
+<p>confidence(X-&gt;Y) = support(X U Y) / support(X)<br />
+support(X, Y) = support count(X, Y) / total dataset size</p>
+<h2 id="pre-processing-done"><a name="user-content-pre-processing-done" href="#pre-processing-done" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pre-processing done</h2>
+<p>The csv file was read transaction by transaction and each transaction was saved as a list.<br />
+A mapping was created from the unique items in the dataset to integers so that each item corresponded to a unique integer.<br />
+The entire data was mapped to integers to reduce the storage and computational requirement.<br />
+A reverse mapping was created from the integers to the items, so that the item names could be written in the final output file.</p>
 <h2 id="directory-structure"><a name="user-content-directory-structure" href="#directory-structure" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Directory Structure:</h2>
 <pre><code>association-rule-mining-apriori/
 +-- data
@@ -1104,9 +1112,19 @@ where k is chosen by the user.</p>
 <td>60</td>
 </tr>
 <tr>
-<td>High()</td>
-<td>0.5</td>
-<td></td>
+<td>Low confidence(MIN_CONF=0.1) High support(MINSUP=60)</td>
+<td>725</td>
+<td>1189</td>
+</tr>
+<tr>
+<td>High confidence(MIN_CONF=0.5) Low support(MINSUP=10)</td>
+<td>11390</td>
+<td>4187</td>
+</tr>
+<tr>
+<td>Low confidence(MIN_CONF=0.1) Low support(MINSUP=10)</td>
+<td>11390</td>
+<td>35196</td>
 </tr>
 </tbody>
 </table>
