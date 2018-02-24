@@ -1,176 +1,176 @@
-['beef'] ---> ['root vegetables']
-['herbs'] ---> ['other vegetables']
-['baking powder'] ---> ['whole milk']
-['onions'] ---> ['other vegetables']
-['herbs'] ---> ['root vegetables']
-['berries'] ---> ['whipped/sour cream']
-['root vegetables', 'whipped/sour cream'] ---> ['yogurt']
-['butter', 'domestic eggs'] ---> ['whole milk']
-['whipped/sour cream', 'yogurt'] ---> ['whole milk']
-['root vegetables', 'soda'] ---> ['other vegetables']
-['fruit/vegetable juice', 'tropical fruit'] ---> ['other vegetables']
-['tropical fruit', 'whipped/sour cream'] ---> ['whole milk']
-['citrus fruit', 'root vegetables'] ---> ['whole milk']
-['pip fruit', 'sausage'] ---> ['whole milk']
-['domestic eggs', 'yogurt'] ---> ['whole milk']
-['curd', 'other vegetables'] ---> ['whole milk']
-['onions', 'root vegetables'] ---> ['other vegetables']
-['onions', 'other vegetables'] ---> ['root vegetables']
-['pastry', 'root vegetables'] ---> ['whole milk']
-['pork', 'root vegetables'] ---> ['other vegetables']
-['other vegetables', 'sugar'] ---> ['whole milk']
-['pip fruit', 'tropical fruit'] ---> ['other vegetables']
-['other vegetables', 'pip fruit'] ---> ['tropical fruit']
-['curd', 'whipped/sour cream'] ---> ['whole milk']
-['rolls/buns', 'root vegetables'] ---> ['whole milk']
-['margarine', 'root vegetables'] ---> ['other vegetables']
-['pip fruit', 'yogurt'] ---> ['tropical fruit']
-['pork', 'whole milk'] ---> ['other vegetables']
-['beef', 'root vegetables'] ---> ['other vegetables']
-['beef', 'other vegetables'] ---> ['root vegetables']
-['root vegetables', 'whipped/sour cream'] ---> ['whole milk']
-['long life bakery product', 'other vegetables'] ---> ['whole milk']
-['pip fruit', 'yogurt'] ---> ['other vegetables']
-['frozen vegetables', 'whole milk'] ---> ['other vegetables']
-['frozen vegetables', 'other vegetables'] ---> ['whole milk']
-['pork', 'rolls/buns'] ---> ['other vegetables']
-['pip fruit', 'root vegetables'] ---> ['other vegetables']
-['other vegetables', 'yogurt'] ---> ['whole milk']
-['butter', 'root vegetables'] ---> ['other vegetables']
-['butter', 'other vegetables'] ---> ['root vegetables']
-['newspapers', 'root vegetables'] ---> ['whole milk']
-['chicken', 'whole milk'] ---> ['other vegetables']
-['pastry', 'yogurt'] ---> ['whole milk']
-['tropical fruit', 'whipped/sour cream'] ---> ['yogurt']
-['root vegetables', 'yogurt'] ---> ['whole milk']
-['citrus fruit', 'whipped/sour cream'] ---> ['other vegetables']
-['curd', 'yogurt'] ---> ['whole milk']
-['curd', 'whole milk'] ---> ['yogurt']
-['domestic eggs', 'tropical fruit'] ---> ['whole milk']
-['domestic eggs', 'margarine'] ---> ['whole milk']
-['domestic eggs', 'other vegetables'] ---> ['whole milk']
-['bottled water', 'butter'] ---> ['whole milk']
-['beef', 'yogurt'] ---> ['other vegetables']
-['fruit/vegetable juice', 'yogurt'] ---> ['whole milk']
-['whipped/sour cream', 'yogurt'] ---> ['other vegetables']
-['root vegetables', 'yogurt'] ---> ['other vegetables']
-['bottled beer', 'yogurt'] ---> ['whole milk']
-['newspapers', 'root vegetables'] ---> ['other vegetables']
-['pip fruit', 'whipped/sour cream'] ---> ['whole milk']
-['pastry', 'root vegetables'] ---> ['other vegetables']
-['rolls/buns', 'shopping bags'] ---> ['sausage']
-['root vegetables', 'shopping bags'] ---> ['other vegetables']
-['tropical fruit', 'yogurt'] ---> ['whole milk']
-['curd', 'tropical fruit'] ---> ['whole milk']
-['frankfurter', 'tropical fruit'] ---> ['whole milk']
-['cream cheese', 'other vegetables'] ---> ['yogurt']
-['curd', 'root vegetables'] ---> ['whole milk']
-['butter', 'whipped/sour cream'] ---> ['whole milk']
-['pork', 'rolls/buns'] ---> ['whole milk']
-['root vegetables', 'sausage'] ---> ['other vegetables']
-['domestic eggs', 'whipped/sour cream'] ---> ['whole milk']
-['margarine', 'rolls/buns'] ---> ['whole milk']
-['beef', 'whole milk'] ---> ['root vegetables']
-['curd', 'tropical fruit'] ---> ['other vegetables']
-['tropical fruit', 'whipped/sour cream'] ---> ['other vegetables']
-['curd', 'rolls/buns'] ---> ['whole milk']
-['rolls/buns', 'root vegetables'] ---> ['other vegetables']
-['citrus fruit', 'whipped/sour cream'] ---> ['whole milk']
-['curd', 'tropical fruit'] ---> ['yogurt']
-['rolls/buns', 'whipped/sour cream'] ---> ['other vegetables']
-['citrus fruit', 'root vegetables'] ---> ['tropical fruit']
-['citrus fruit', 'root vegetables'] ---> ['other vegetables']
-['citrus fruit', 'other vegetables'] ---> ['root vegetables']
-['domestic eggs', 'root vegetables'] ---> ['other vegetables']
-['domestic eggs', 'other vegetables'] ---> ['root vegetables']
-['citrus fruit', 'domestic eggs'] ---> ['whole milk']
-['fruit/vegetable juice', 'root vegetables'] ---> ['other vegetables']
-['pip fruit', 'whipped/sour cream'] ---> ['other vegetables']
-['butter', 'yogurt'] ---> ['whole milk']
-['cream cheese', 'yogurt'] ---> ['whole milk']
-['cream cheese', 'whole milk'] ---> ['yogurt']
-['chicken', 'whole milk'] ---> ['root vegetables']
-['chicken', 'root vegetables'] ---> ['whole milk']
-['brown bread', 'tropical fruit'] ---> ['whole milk']
-['hygiene articles', 'other vegetables'] ---> ['whole milk']
-['butter', 'other vegetables'] ---> ['whole milk']
-['pip fruit', 'whole milk'] ---> ['other vegetables']
-['other vegetables', 'pip fruit'] ---> ['whole milk']
-['bottled water', 'tropical fruit'] ---> ['yogurt']
-['pip fruit', 'root vegetables'] ---> ['whole milk']
-['frozen vegetables', 'root vegetables'] ---> ['other vegetables']
-['frozen vegetables', 'other vegetables'] ---> ['root vegetables']
-['butter', 'whipped/sour cream'] ---> ['other vegetables']
-['butter', 'other vegetables'] ---> ['whipped/sour cream']
-['pastry', 'tropical fruit'] ---> ['whole milk']
-['root vegetables', 'tropical fruit'] ---> ['other vegetables']
-['other vegetables', 'tropical fruit'] ---> ['root vegetables']
-['butter', 'tropical fruit'] ---> ['other vegetables']
-['chicken', 'root vegetables'] ---> ['other vegetables']
-['citrus fruit', 'tropical fruit'] ---> ['other vegetables']
-['fruit/vegetable juice', 'root vegetables'] ---> ['whole milk']
-['onions', 'whole milk'] ---> ['other vegetables']
-['root vegetables', 'whipped/sour cream'] ---> ['other vegetables']
-['frozen vegetables', 'root vegetables'] ---> ['whole milk']
-['fruit/vegetable juice', 'yogurt'] ---> ['other vegetables']
-['fruit/vegetable juice', 'other vegetables'] ---> ['yogurt']
-['pip fruit', 'root vegetables'] ---> ['tropical fruit']
-['root vegetables', 'sausage'] ---> ['whole milk']
-['curd', 'root vegetables'] ---> ['other vegetables']
-['domestic eggs', 'pip fruit'] ---> ['whole milk']
-['root vegetables', 'tropical fruit'] ---> ['whole milk']
-['butter', 'root vegetables'] ---> ['whole milk']
-['whipped/sour cream', 'whole milk'] ---> ['other vegetables']
-['other vegetables', 'whipped/sour cream'] ---> ['whole milk']
-['root vegetables', 'whole milk'] ---> ['other vegetables']
-['bottled water', 'root vegetables'] ---> ['other vegetables']
-['brown bread', 'root vegetables'] ---> ['whole milk']
-['butter', 'tropical fruit'] ---> ['whole milk']
-['sausage', 'tropical fruit'] ---> ['whole milk']
-['chicken', 'rolls/buns'] ---> ['whole milk']
-['pip fruit', 'yogurt'] ---> ['whole milk']
-['root vegetables', 'tropical fruit'] ---> ['yogurt']
-['beef', 'yogurt'] ---> ['whole milk']
-['rolls/buns', 'whipped/sour cream'] ---> ['whole milk']
-['domestic eggs', 'root vegetables'] ---> ['whole milk']
-['frankfurter', 'yogurt'] ---> ['whole milk']
-['citrus fruit', 'tropical fruit'] ---> ['pip fruit']
-['citrus fruit', 'pip fruit'] ---> ['tropical fruit']
-['butter', 'yogurt'] ---> ['other vegetables']
-['tropical fruit', 'whole milk', 'yogurt'] ---> ['root vegetables']
-['root vegetables', 'whole milk', 'yogurt'] ---> ['tropical fruit']
-['root vegetables', 'tropical fruit', 'yogurt'] ---> ['whole milk']
-['root vegetables', 'tropical fruit', 'whole milk'] ---> ['yogurt']
-['root vegetables', 'yogurt'] ---> ['tropical fruit', 'whole milk']
-['root vegetables', 'tropical fruit'] ---> ['whole milk', 'yogurt']
-['root vegetables', 'whipped/sour cream', 'whole milk'] ---> ['other vegetables']
-['other vegetables', 'whipped/sour cream', 'whole milk'] ---> ['root vegetables']
-['other vegetables', 'root vegetables', 'whipped/sour cream'] ---> ['whole milk']
-['root vegetables', 'whipped/sour cream'] ---> ['other vegetables', 'whole milk']
-['root vegetables', 'tropical fruit', 'whole milk'] ---> ['other vegetables']
-['other vegetables', 'tropical fruit', 'whole milk'] ---> ['root vegetables']
-['other vegetables', 'root vegetables', 'tropical fruit'] ---> ['whole milk']
-['root vegetables', 'tropical fruit'] ---> ['other vegetables', 'whole milk']
-['tropical fruit', 'whole milk', 'yogurt'] ---> ['other vegetables']
-['other vegetables', 'whole milk', 'yogurt'] ---> ['tropical fruit']
-['other vegetables', 'tropical fruit', 'yogurt'] ---> ['whole milk']
-['other vegetables', 'tropical fruit', 'whole milk'] ---> ['yogurt']
-['rolls/buns', 'root vegetables', 'whole milk'] ---> ['other vegetables']
-['other vegetables', 'rolls/buns', 'whole milk'] ---> ['root vegetables']
-['other vegetables', 'rolls/buns', 'root vegetables'] ---> ['whole milk']
-['whipped/sour cream', 'whole milk', 'yogurt'] ---> ['other vegetables']
-['other vegetables', 'whipped/sour cream', 'yogurt'] ---> ['whole milk']
-['other vegetables', 'whipped/sour cream', 'whole milk'] ---> ['yogurt']
-['citrus fruit', 'root vegetables', 'whole milk'] ---> ['other vegetables']
-['citrus fruit', 'other vegetables', 'whole milk'] ---> ['root vegetables']
-['citrus fruit', 'other vegetables', 'root vegetables'] ---> ['whole milk']
-['citrus fruit', 'root vegetables'] ---> ['other vegetables', 'whole milk']
-['other vegetables', 'rolls/buns', 'yogurt'] ---> ['whole milk']
-['pip fruit', 'root vegetables', 'whole milk'] ---> ['other vegetables']
-['other vegetables', 'pip fruit', 'whole milk'] ---> ['root vegetables']
-['other vegetables', 'pip fruit', 'root vegetables'] ---> ['whole milk']
-['pip fruit', 'root vegetables'] ---> ['other vegetables', 'whole milk']
-['root vegetables', 'whole milk', 'yogurt'] ---> ['other vegetables']
-['other vegetables', 'whole milk', 'yogurt'] ---> ['root vegetables']
-['other vegetables', 'root vegetables', 'yogurt'] ---> ['whole milk']
-['root vegetables', 'yogurt'] ---> ['other vegetables', 'whole milk']
+['beef'] ---> ['root vegetables'] - conf(0.0101215964074)
+['herbs'] ---> ['other vegetables'] - conf(0.0108886544433)
+['baking powder'] ---> ['whole milk'] - conf(0.0104326803172)
+['onions'] ---> ['other vegetables'] - conf(0.0105222545095)
+['herbs'] ---> ['root vegetables'] - conf(0.0131713932197)
+['berries'] ---> ['whipped/sour cream'] - conf(0.0102505624414)
+['root vegetables', 'whipped/sour cream'] ---> ['yogurt'] - conf(0.0101240483842)
+['pip fruit', 'root vegetables'] ---> ['tropical fruit'] - conf(0.0105796686049)
+['butter', 'domestic eggs'] ---> ['whole milk'] - conf(0.0123888833009)
+['domestic eggs', 'margarine'] ---> ['whole milk'] - conf(0.0124068085144)
+['root vegetables', 'soda'] ---> ['other vegetables'] - conf(0.0101464597056)
+['fruit/vegetable juice', 'tropical fruit'] ---> ['other vegetables'] - conf(0.0110372325741)
+['tropical fruit', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0114408805159)
+['citrus fruit', 'root vegetables'] ---> ['whole milk'] - conf(0.0103180354785)
+['pip fruit', 'sausage'] ---> ['whole milk'] - conf(0.010350482131)
+['domestic eggs', 'yogurt'] ---> ['whole milk'] - conf(0.0107522223143)
+['curd', 'other vegetables'] ---> ['whole milk'] - conf(0.0114495596849)
+['onions', 'root vegetables'] ---> ['other vegetables'] - conf(0.0138033876361)
+['onions', 'other vegetables'] ---> ['root vegetables'] - conf(0.0122169444356)
+['pastry', 'root vegetables'] ---> ['whole milk'] - conf(0.0103435121094)
+['other vegetables', 'sugar'] ---> ['whole milk'] - conf(0.0116678162204)
+['pip fruit', 'tropical fruit'] ---> ['other vegetables'] - conf(0.0106063876746)
+['other vegetables', 'pip fruit'] ---> ['tropical fruit'] - conf(0.0112644496093)
+['curd', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0112329680744)
+['rolls/buns', 'root vegetables'] ---> ['whole milk'] - conf(0.0104331600027)
+['pip fruit', 'yogurt'] ---> ['tropical fruit'] - conf(0.011079685537)
+['pork', 'whole milk'] ---> ['other vegetables'] - conf(0.010515359192)
+['beef', 'root vegetables'] ---> ['other vegetables'] - conf(0.0104563255965)
+['beef', 'other vegetables'] ---> ['root vegetables'] - conf(0.012279918376)
+['long life bakery product', 'other vegetables'] ---> ['whole milk'] - conf(0.0106390410268)
+['pip fruit', 'yogurt'] ---> ['other vegetables'] - conf(0.0103608962886)
+['frozen vegetables', 'whole milk'] ---> ['other vegetables'] - conf(0.0108344820331)
+['frozen vegetables', 'other vegetables'] ---> ['whole milk'] - conf(0.0108290239022)
+['pork', 'rolls/buns'] ---> ['other vegetables'] - conf(0.0113584825867)
+['pip fruit', 'root vegetables'] ---> ['other vegetables'] - conf(0.0119861349221)
+['butter', 'root vegetables'] ---> ['other vegetables'] - conf(0.0117324913189)
+['butter', 'other vegetables'] ---> ['root vegetables'] - conf(0.0100774287857)
+['newspapers', 'root vegetables'] ---> ['whole milk'] - conf(0.0100623673428)
+['chicken', 'whole milk'] ---> ['other vegetables'] - conf(0.0109979716312)
+['pastry', 'yogurt'] ---> ['whole milk'] - conf(0.0103180354785)
+['beef', 'whole milk'] ---> ['root vegetables'] - conf(0.0115447202203)
+['root vegetables', 'yogurt'] ---> ['whole milk'] - conf(0.0112306806114)
+['citrus fruit', 'whipped/sour cream'] ---> ['other vegetables'] - conf(0.0119973369174)
+['curd', 'yogurt'] ---> ['whole milk'] - conf(0.0116168940623)
+['curd', 'whole milk'] ---> ['yogurt'] - conf(0.0103998006748)
+['domestic eggs', 'tropical fruit'] ---> ['whole milk'] - conf(0.0121114083117)
+['domestic eggs', 'other vegetables'] ---> ['whole milk'] - conf(0.0110216092829)
+['bottled water', 'butter'] ---> ['whole milk'] - conf(0.0120142579777)
+['margarine', 'root vegetables'] ---> ['other vegetables'] - conf(0.0121978166627)
+['beef', 'yogurt'] ---> ['other vegetables'] - conf(0.010166066391)
+['fruit/vegetable juice', 'yogurt'] ---> ['whole milk'] - conf(0.0100825151035)
+['whipped/sour cream', 'yogurt'] ---> ['other vegetables'] - conf(0.0112370014895)
+['root vegetables', 'yogurt'] ---> ['other vegetables'] - conf(0.0114617415193)
+['bottled beer', 'yogurt'] ---> ['whole milk'] - conf(0.0111797615185)
+['bottled water', 'root vegetables'] ---> ['other vegetables'] - conf(0.0102709112316)
+['newspapers', 'root vegetables'] ---> ['other vegetables'] - conf(0.0119688982237)
+['pip fruit', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0129334495998)
+['pastry', 'root vegetables'] ---> ['other vegetables'] - conf(0.0123107594096)
+['rolls/buns', 'shopping bags'] ---> ['sausage'] - conf(0.0101091536465)
+['root vegetables', 'shopping bags'] ---> ['other vegetables'] - conf(0.0118256063294)
+['tropical fruit', 'yogurt'] ---> ['whole milk'] - conf(0.0103204239127)
+['rolls/buns', 'root vegetables'] ---> ['other vegetables'] - conf(0.0115096985968)
+['frankfurter', 'tropical fruit'] ---> ['whole milk'] - conf(0.0109393365396)
+['cream cheese', 'other vegetables'] ---> ['yogurt'] - conf(0.0103990225378)
+['curd', 'root vegetables'] ---> ['whole milk'] - conf(0.0113723394153)
+['butter', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0131658132706)
+['pork', 'rolls/buns'] ---> ['whole milk'] - conf(0.0109625253823)
+['root vegetables', 'sausage'] ---> ['other vegetables'] - conf(0.0104481181196)
+['domestic eggs', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0113989725287)
+['root vegetables', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0110427546372)
+['frankfurter', 'yogurt'] ---> ['whole milk'] - conf(0.011062184704)
+['margarine', 'rolls/buns'] ---> ['whole milk'] - conf(0.0107307568977)
+['tropical fruit', 'whipped/sour cream'] ---> ['yogurt'] - conf(0.0121091559105)
+['curd', 'tropical fruit'] ---> ['other vegetables'] - conf(0.0118021892872)
+['tropical fruit', 'whipped/sour cream'] ---> ['other vegetables'] - conf(0.0129787367204)
+['butter', 'tropical fruit'] ---> ['whole milk'] - conf(0.012416737933)
+['curd', 'rolls/buns'] ---> ['whole milk'] - conf(0.0116868253703)
+['citrus fruit', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.011558771209)
+['curd', 'tropical fruit'] ---> ['yogurt'] - conf(0.0138996835902)
+['rolls/buns', 'whipped/sour cream'] ---> ['other vegetables'] - conf(0.0105065963927)
+['citrus fruit', 'root vegetables'] ---> ['tropical fruit'] - conf(0.010018412976)
+['citrus fruit', 'root vegetables'] ---> ['other vegetables'] - conf(0.0134379038502)
+['citrus fruit', 'other vegetables'] ---> ['root vegetables'] - conf(0.0109694395461)
+['domestic eggs', 'root vegetables'] ---> ['other vegetables'] - conf(0.0117056083601)
+['domestic eggs', 'other vegetables'] ---> ['root vegetables'] - conf(0.0100413241937)
+['whipped/sour cream', 'yogurt'] ---> ['whole milk'] - conf(0.0104630274804)
+['fruit/vegetable juice', 'root vegetables'] ---> ['other vegetables'] - conf(0.0126273423517)
+['pork', 'root vegetables'] ---> ['other vegetables'] - conf(0.0118038830572)
+['butter', 'yogurt'] ---> ['whole milk'] - conf(0.0127446845633)
+['cream cheese', 'yogurt'] ---> ['whole milk'] - conf(0.01062814037)
+['cream cheese', 'whole milk'] ---> ['yogurt'] - conf(0.0108323151436)
+['chicken', 'whole milk'] ---> ['root vegetables'] - conf(0.0104161809495)
+['chicken', 'root vegetables'] ---> ['whole milk'] - conf(0.0109994758279)
+['brown bread', 'tropical fruit'] ---> ['whole milk'] - conf(0.0106390410268)
+['hygiene articles', 'other vegetables'] ---> ['whole milk'] - conf(0.010822960619)
+['butter', 'other vegetables'] ---> ['whole milk'] - conf(0.0114423696322)
+['other vegetables', 'yogurt'] ---> ['whole milk'] - conf(0.0102310450155)
+['pip fruit', 'whole milk'] ---> ['other vegetables'] - conf(0.0103000785275)
+['other vegetables', 'pip fruit'] ---> ['whole milk'] - conf(0.0103233885449)
+['bottled water', 'tropical fruit'] ---> ['yogurt'] - conf(0.0103836393684)
+['pip fruit', 'root vegetables'] ---> ['whole milk'] - conf(0.0114734756171)
+['frozen vegetables', 'root vegetables'] ---> ['other vegetables'] - conf(0.0120649910729)
+['frozen vegetables', 'other vegetables'] ---> ['root vegetables'] - conf(0.0104716666591)
+['butter', 'whipped/sour cream'] ---> ['other vegetables'] - conf(0.013066385332)
+['butter', 'other vegetables'] ---> ['whipped/sour cream'] - conf(0.0108971786543)
+['pastry', 'tropical fruit'] ---> ['whole milk'] - conf(0.0101275486697)
+['citrus fruit', 'domestic eggs'] ---> ['whole milk'] - conf(0.0109519539981)
+['root vegetables', 'tropical fruit'] ---> ['other vegetables'] - conf(0.0133997171385)
+['other vegetables', 'tropical fruit'] ---> ['root vegetables'] - conf(0.0104691945943)
+['butter', 'tropical fruit'] ---> ['other vegetables'] - conf(0.0126313069804)
+['chicken', 'root vegetables'] ---> ['other vegetables'] - conf(0.0119973369174)
+['citrus fruit', 'tropical fruit'] ---> ['other vegetables'] - conf(0.0104091326042)
+['onions', 'whole milk'] ---> ['other vegetables'] - conf(0.0125212302311)
+['root vegetables', 'whipped/sour cream'] ---> ['other vegetables'] - conf(0.0114617415193)
+['frozen vegetables', 'root vegetables'] ---> ['whole milk'] - conf(0.0106740378722)
+['fruit/vegetable juice', 'yogurt'] ---> ['other vegetables'] - conf(0.0100913159028)
+['fruit/vegetable juice', 'other vegetables'] ---> ['yogurt'] - conf(0.0105642244009)
+['curd', 'tropical fruit'] ---> ['whole milk'] - conf(0.0126404447843)
+['root vegetables', 'sausage'] ---> ['whole milk'] - conf(0.0103133560974)
+['domestic eggs', 'pip fruit'] ---> ['whole milk'] - conf(0.0124382906122)
+['root vegetables', 'tropical fruit'] ---> ['whole milk'] - conf(0.0113714387786)
+['whipped/sour cream', 'whole milk'] ---> ['other vegetables'] - conf(0.0104131910333)
+['other vegetables', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0101145812578)
+['curd', 'root vegetables'] ---> ['other vegetables'] - conf(0.0115688605989)
+['root vegetables', 'whole milk'] ---> ['other vegetables'] - conf(0.0108660169081)
+['butter', 'root vegetables'] ---> ['whole milk'] - conf(0.0127228689444)
+['brown bread', 'root vegetables'] ---> ['whole milk'] - conf(0.0111709930781)
+['sausage', 'tropical fruit'] ---> ['whole milk'] - conf(0.0103381192459)
+['chicken', 'rolls/buns'] ---> ['whole milk'] - conf(0.0109190157906)
+['pip fruit', 'yogurt'] ---> ['whole milk'] - conf(0.0105939603444)
+['root vegetables', 'tropical fruit'] ---> ['yogurt'] - conf(0.0104338018774)
+['beef', 'yogurt'] ---> ['whole milk'] - conf(0.0104077575262)
+['rolls/buns', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0106667468628)
+['pip fruit', 'whipped/sour cream'] ---> ['other vegetables'] - conf(0.0138548523859)
+['fruit/vegetable juice', 'root vegetables'] ---> ['whole milk'] - conf(0.010819363756)
+['domestic eggs', 'root vegetables'] ---> ['whole milk'] - conf(0.0118840351895)
+['citrus fruit', 'tropical fruit'] ---> ['pip fruit'] - conf(0.0102877440385)
+['citrus fruit', 'pip fruit'] ---> ['tropical fruit'] - conf(0.012588788364)
+['butter', 'yogurt'] ---> ['other vegetables'] - conf(0.0100290238294)
+['tropical fruit', 'whole milk', 'yogurt'] ---> ['root vegetables'] - conf(0.0114790081946)
+['root vegetables', 'whole milk', 'yogurt'] ---> ['tropical fruit'] - conf(0.012190236768)
+['root vegetables', 'tropical fruit', 'yogurt'] ---> ['whole milk'] - conf(0.0139637413476)
+['root vegetables', 'tropical fruit', 'whole milk'] ---> ['yogurt'] - conf(0.0128123550173)
+['root vegetables', 'yogurt'] ---> ['tropical fruit', 'whole milk'] - conf(0.0108095507556)
+['root vegetables', 'tropical fruit'] ---> ['whole milk', 'yogurt'] - conf(0.011525025159)
+['root vegetables', 'whipped/sour cream', 'whole milk'] ---> ['other vegetables'] - conf(0.0125709423115)
+['other vegetables', 'whipped/sour cream', 'whole milk'] ---> ['root vegetables'] - conf(0.010817086219)
+['other vegetables', 'root vegetables', 'whipped/sour cream'] ---> ['whole milk'] - conf(0.0121114083117)
+['root vegetables', 'whipped/sour cream'] ---> ['other vegetables', 'whole milk'] - conf(0.0111897913153)
+['tropical fruit', 'whole milk', 'yogurt'] ---> ['other vegetables'] - conf(0.011538665959)
+['other vegetables', 'whole milk', 'yogurt'] ---> ['tropical fruit'] - conf(0.0106604932597)
+['other vegetables', 'tropical fruit', 'yogurt'] ---> ['whole milk'] - conf(0.0123645879702)
+['other vegetables', 'tropical fruit', 'whole milk'] ---> ['yogurt'] - conf(0.0120524385526)
+['rolls/buns', 'root vegetables', 'whole milk'] ---> ['other vegetables'] - conf(0.0111866597228)
+['other vegetables', 'rolls/buns', 'whole milk'] ---> ['root vegetables'] - conf(0.0105857046956)
+['other vegetables', 'rolls/buns', 'root vegetables'] ---> ['whole milk'] - conf(0.0101403359786)
+['pip fruit', 'root vegetables', 'whole milk'] ---> ['other vegetables'] - conf(0.0140666827737)
+['other vegetables', 'pip fruit', 'whole milk'] ---> ['root vegetables'] - conf(0.0124006578858)
+['other vegetables', 'pip fruit', 'root vegetables'] ---> ['whole milk'] - conf(0.0134650362995)
+['pip fruit', 'root vegetables'] ---> ['other vegetables', 'whole milk'] - conf(0.0130095843666)
+['whipped/sour cream', 'whole milk', 'yogurt'] ---> ['other vegetables'] - conf(0.0117830987581)
+['other vegetables', 'whipped/sour cream', 'yogurt'] ---> ['whole milk'] - conf(0.0109715110588)
+['other vegetables', 'whipped/sour cream', 'whole milk'] ---> ['yogurt'] - conf(0.0103115307617)
+['citrus fruit', 'root vegetables', 'whole milk'] ---> ['other vegetables'] - conf(0.0145182059244)
+['citrus fruit', 'other vegetables', 'whole milk'] ---> ['root vegetables'] - conf(0.0136008951725)
+['citrus fruit', 'other vegetables', 'root vegetables'] ---> ['whole milk'] - conf(0.0111475246052)
+['citrus fruit', 'root vegetables'] ---> ['other vegetables', 'whole milk'] - conf(0.0120749877885)
+['other vegetables', 'rolls/buns', 'yogurt'] ---> ['whole milk'] - conf(0.0104154328636)
+['root vegetables', 'tropical fruit', 'whole milk'] ---> ['other vegetables'] - conf(0.0134044095734)
+['other vegetables', 'tropical fruit', 'whole milk'] ---> ['root vegetables'] - conf(0.0125441840187)
+['other vegetables', 'root vegetables', 'tropical fruit'] ---> ['whole milk'] - conf(0.0113754209325)
+['root vegetables', 'tropical fruit'] ---> ['other vegetables', 'whole milk'] - conf(0.0122868296796)
+['root vegetables', 'whole milk', 'yogurt'] ---> ['other vegetables'] - conf(0.0123434139438)
+['other vegetables', 'whole milk', 'yogurt'] ---> ['root vegetables'] - conf(0.0107386383738)
+['other vegetables', 'root vegetables', 'yogurt'] ---> ['whole milk'] - conf(0.01209457912)
+['root vegetables', 'yogurt'] ---> ['other vegetables', 'whole milk'] - conf(0.0111742427401)

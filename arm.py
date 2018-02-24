@@ -1,7 +1,6 @@
 import csv
 import itertools
 from time import time
-#import numba as nb
 import pickle
 import os
 import numpy as np
@@ -105,7 +104,7 @@ def frequent_itemset_generation(data_path):
 	L_final.append(temp_l_current) ##################check count of l
 	l_current=temp_l_current
 
-	for i in range(K_MAX):              ######################### change to while
+	while(len(l_current)):
 		c_current = apriori_gen(list(l_current.keys()))
 		if len(c_current):
 			C_t = subset(c_current, transactions_mapped)
@@ -117,7 +116,7 @@ def frequent_itemset_generation(data_path):
 				L_final.append(l_current)
 		else:
 			break
-	pickle.dump(L_final, open('l_final.pkl', 'wb+'))  ###################### pickle dump
+	pickle.dump(L_final, open('l_final.pkl', 'wb+'))
 	return L_final
 
 def generate_rules(frequent_items):
@@ -137,7 +136,7 @@ def generate_rules(frequent_items):
 					rule=[]
 					rule.append(X)
 					rule.append(Y)
-					rules.append(rule)
+					rules.append({tuple(rule):confidence})
 				else:
 					to_remove.append(h)
 
@@ -155,7 +154,7 @@ def generate_rules(frequent_items):
 							rule=[]
 							rule.append(X)
 							rule.append(Y)
-							rules.append(rule)
+							rules.append({tuple(rule):confidence})
 						else:
 							to_remove.append(h)
 					H_next=[x for x in H_next if x not in to_remove]
@@ -164,19 +163,25 @@ def generate_rules(frequent_items):
 					break	
 	return rules
 
-def display_rules(rules, write=False):
+def display_rules(rules, frequent_items, write=False):
 	reverse_map=pickle.load(open('reverse_map.pkl', 'rb'))
-	with open('output.txt', 'w+') as f:
+	bad_chars="[]''"
+	with open('association_rules.txt', 'w+') as f:
 		for rule in rules:
-			X=rule[0]
-			Y=rule[1]
-			print([reverse_map[x] for x in X], '--->', [reverse_map[y] for y in Y])
-			f.write(str([reverse_map[x] for x in X])+' ---> '+str([reverse_map[y] for y in Y])+'\n')
+			X, Y=list(rule.keys())[0]
+			confidence=list(rule.values())[0]
+			print([reverse_map[x] for x in X], '--->', [reverse_map[y] for y in Y], '- conf('+ str(confidence)+ ')')
+			f.write(str([reverse_map[x] for x in X]).strip(bad_chars).replace("'", '')+' ---> '+str([reverse_map[y] for y in Y]).strip(bad_chars).replace("'", '') + ' - conf('+ str(confidence)+ ')'+'\n')
 
+	with open('frequent_itemsets.txt', 'w+') as f:
+		for k_itemset in frequent_items:
+			for itemset, support in k_itemset.items():
+				f.write(str([reverse_map[x] for x in itemset]).strip(bad_chars).replace("'", '')+'('+str(support)+')'+'\n')
+			
 if __name__=='__main__':
 	data_path = 'data/groceries.csv'
 	frequent_items = frequent_itemset_generation(data_path)
+	# print(frequent_items[0])
 	rules = generate_rules(frequent_items)
-	print(frequent_items)
-	display_rules(rules, write=True)
-	print(len(rules))
+	display_rules(rules, frequent_items, write=True)
+	# print(len(rules))
