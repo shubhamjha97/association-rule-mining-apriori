@@ -21,13 +21,15 @@ class Tree:
 		self.k=k
 		self.max_leaf_size=max_leaf_size
 		self.isTree=True
+		self.c_length=len(c_list[0])
 		self.build_tree(c_list)
 		
 
 	def update_tree(self):
 		for child in self.children:
 			if len(self.children[child].children) > self.max_leaf_size:
-				child=Tree(self.children[child].children.keys(), k=self.k, max_leaf_size=self.max_leaf_size, depth=self.depth+1)
+				if self.depth+1 < self.c_length:
+					child=Tree(list(self.children[child].children.keys()), k=self.k, max_leaf_size=self.max_leaf_size, depth=self.depth+1)
 
 	def build_tree(self, c_list):
 		for candidate in c_list:
@@ -46,7 +48,6 @@ class Tree:
 				if tuple(candidate) in list(child.children.keys()):
 					if update:
 						child.children[tuple(candidate)]+=1
-						# print('count updated to', child.children[tuple(candidate)])
 					return child.children[tuple(candidate)]
 				else:
 					return 0
@@ -66,7 +67,7 @@ def generate_subsets(transaction, k):
 			temp= curr+ [transaction[j]]
 			recurse(transaction, k-1, j+1, temp[:])
 	recurse(transaction, k)
-
+	
 	return res
 
 

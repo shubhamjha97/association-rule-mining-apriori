@@ -9,8 +9,7 @@ from hash_tree import Tree, generate_subsets
 ####Using lift instead of confidence
 
 MINSUP=50
-HASH_DENOMINATOR=30
-K_MAX=10
+HASH_DENOMINATOR=10
 MIN_CONF=0.01
 
 def timeit(fn):
@@ -183,5 +182,5 @@ if __name__=='__main__':
 	frequent_items = frequent_itemset_generation(data_path)
 	# print(frequent_items[0])
 	rules = generate_rules(frequent_items)
-	display_rules(rules, frequent_items, write=True)
+	# display_rules(rules, frequent_items, write=True)
 	# print(len(rules))
