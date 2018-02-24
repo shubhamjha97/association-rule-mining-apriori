@@ -32,8 +32,8 @@ Association rules mining is a rule-based method for discovering interesting rela
 The main purpose of this project is to get an in depth understanding of how the Apriori algorithm works.
 We implemented support counting using hash trees. The difference between out approach is significant as demonstrated by the following run times (we used the same value of ```MINSUP``` and ```MIN_CONF``` for both) -
 
-Support counting using hash tree- ```22.5s```
-Support counting using brute force- ```5.9s ```
+Support counting using brute force- ```22.5s```
+Support counting using hash tree- ```5.9s ```
 
 For the sake of comparison, we have left in the code for the brute force method commented. Please feel free to uncomment it and try it out.
 
