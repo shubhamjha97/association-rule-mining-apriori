@@ -87,6 +87,7 @@ association-rule-mining-apriori/
 |   +-- association_rules.txt(all the interesting association rules mined and presented in the prescribed format)
 +--  results(folder containing the results of this project)
 +--  reverse_map.pkl(mapping from items to index in pickled format)
++--  requirements.txt
 ```
 
 ## Prescribed format of output
@@ -103,7 +104,9 @@ Frequent itemset (support count)
 
 ## Machine specs:
 Processor: i7-7500U
+
 Ram: 16 GB DDR4
+
 OS: Ubuntu 16.04 LTS
 
 ## Results
