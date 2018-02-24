@@ -6,11 +6,9 @@ import os
 import numpy as np
 from hash_tree import Tree, generate_subsets
 
-####Using lift instead of confidence
-
-MINSUP=50
+MINSUP= 50
 HASH_DENOMINATOR=10
-MIN_CONF=0.01
+MIN_CONF=0.5
 
 def timeit(fn):
 	def wrapper(*args, **kwargs):
@@ -85,7 +83,7 @@ def frequent_itemset_generation(data_path):
 	if 'l_final.pkl' in os.listdir('.'):
 		return pickle.load(open('l_final.pkl', 'rb'))
 	transactions, items = load_data(data_path)
-	print('Found', len(transactions), 'transactions,', len(items), 'items.')
+	#print('Found', len(transactions), 'transactions,', len(items), 'items.')
 	map_, reverse_map = create_map(items)
 	pickle.dump(reverse_map, open('reverse_map.pkl', 'wb+'))
 	one_itemset = [[itemset] for itemset in items]
@@ -93,15 +91,15 @@ def frequent_itemset_generation(data_path):
 	transactions_mapped = [applymap(transaction, map_) for transaction in transactions]
 	temp_l_current = subset(items_mapped, transactions_mapped)
 
-	#l_current={}
+	l_current={}
 
-	#for t in temp_l_current.keys():
-	#	if temp_l_current[t] > MINSUP:
-	#		l_current[tuple(t)] = temp_l_current[t]
+	for t in temp_l_current.keys():
+		if temp_l_current[t] > MINSUP:
+			l_current[tuple(t)] = temp_l_current[t]
 
 	L_final = []
-	L_final.append(temp_l_current) ##################check count of l
-	l_current=temp_l_current
+	L_final.append(l_current)#temp_l_current) ##################check count of l
+	# l_current=temp_l_current
 
 	while(len(l_current)):
 		c_current = apriori_gen(list(l_current.keys()))
@@ -130,8 +128,8 @@ def generate_rules(frequent_items):
 			for h in H_curr:
 				X=tuple(sorted(set(itemset)-set(h)))
 				Y=tuple(sorted(h))
-				confidence=support/(frequent_items[k-2][X]*np.sqrt(frequent_items[0][Y]))
-				if confidence>MIN_CONF:
+				confidence = support / (frequent_items[k-2][X])
+				if confidence > MIN_CONF:
 					rule=[]
 					rule.append(X)
 					rule.append(Y)
@@ -148,7 +146,7 @@ def generate_rules(frequent_items):
 					for h in H_next:
 						X=tuple(sorted(set(itemset)-set(h)))
 						Y=tuple(sorted(h))
-						confidence=support/(frequent_items[k-m-2][X]*np.sqrt(frequent_items[m][Y]))
+						confidence = support / (frequent_items[k-m-2][X])
 						if confidence>MIN_CONF:
 							rule=[]
 							rule.append(X)
@@ -175,12 +173,11 @@ def display_rules(rules, frequent_items, write=False):
 	with open('frequent_itemsets.txt', 'w+') as f:
 		for k_itemset in frequent_items:
 			for itemset, support in k_itemset.items():
-				f.write(str([reverse_map[x] for x in itemset]).strip(bad_chars).replace("'", '')+'('+str(support)+')'+'\n')
+				f.write(str([reverse_map[x] for x in itemset]).strip(bad_chars).replace("'", '')+' ('+str(support)+')'+'\n')
 			
 if __name__=='__main__':
 	data_path = 'data/groceries.csv'
 	frequent_items = frequent_itemset_generation(data_path)
-	# print(frequent_items[0])
 	rules = generate_rules(frequent_items)
-	# display_rules(rules, frequent_items, write=True)
-	# print(len(rules))
+	display_rules(rules, frequent_items, write=True)
+	print(len(rules))
