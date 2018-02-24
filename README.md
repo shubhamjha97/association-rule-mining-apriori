@@ -6,21 +6,21 @@ Course Assignment for CS F415- Data Mining @ BITS Pilani, Hyderabad Campus.
 **Done under the guidance of Dr. Aruna Malapati, Assistant Professor, BITS Pilani, Hyderabad Campus.**
 
 ## Table of contents
-- [Introduction](#introduction)
-- [Data](#data)
-- [Instructions to run the scripts](#instructions-to-run-the-scripts)
-      - [Create the train matrix and the mappings](#create-the-train-matrix-and-the-mappings)
-- [Important variables](#important-variables)
-- [Hash Function](#hash-function)
-- [Equations used](#equations-used)
-- [Pre-processing done](#pre-processing-done)
-- [Directory Structure:](#directory-structure-)
-- [Prescribed format of output](#prescribed-format-of-output)
-      - [Association Rules](#association-rules)
-      - [Frequent itemsets](#frequent-itemsets)
-- [Machine specs:](#machine-specs-)
-- [Results](#results)
-- [Members](#members)
+* [Introduction](#introduction)
+* [Data](#data)
+* [Instructions to run the scripts](#instructions-to-run-the-scripts)
+    * [Create the train matrix and the mappings](#create-the-train-matrix-and-the-mappings)
+* [Important variables](#important-variables)
+* [Hash Function](#hash-function)
+* [Equations used](#equations-used)
+* [Pre-processing done](#pre-processing-done)
+* [Directory Structure:](#directory-structure-)
+* [Prescribed format of output](#prescribed-format-of-output)
+    * [Association Rules](#association-rules)
+    * [Frequent itemsets](#frequent-itemsets)
+* [Machine specs:](#machine-specs-)
+* [Results](#results)
+* [Members](#members)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
