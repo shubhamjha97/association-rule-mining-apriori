@@ -277,9 +277,10 @@ def display_rules(rules, frequent_items, write=False):
 	with open('outputs/association_rules.txt', 'w+') as f:
 		for rule in rules:
 			X, Y=list(rule.keys())[0]
+			precedent_support_count, antecedent_support_count=(frequent_items[len(X)-1][X], frequent_items[len(Y)-1][Y])
 			confidence=list(rule.values())[0]
-			print([reverse_map[x] for x in X], '--->', [reverse_map[y] for y in Y], '- conf('+ str(confidence)+ ')')
-			f.write(str([reverse_map[x] for x in X]).strip(bad_chars).replace("'", '')+' ---> '+str([reverse_map[y] for y in Y]).strip(bad_chars).replace("'", '') + ' - conf('+ str(confidence)+ ')'+'\n')
+			print(str([reverse_map[x] for x in X]).strip(bad_chars).replace("'", '')+'('+str(precedent_support_count)+')'+' ---> '+str([reverse_map[y] for y in Y]).strip(bad_chars).replace("'", '') +'('+str(antecedent_support_count)+')' + ' - conf('+ str(confidence)+ ')')
+			f.write(str([reverse_map[x] for x in X]).strip(bad_chars).replace("'", '')+'('+str(precedent_support_count)+')'+' ---> '+str([reverse_map[y] for y in Y]).strip(bad_chars).replace("'", '') +'('+str(antecedent_support_count)+')' + ' - conf('+ str(confidence)+ ')'+'\n')
 
 	with open('outputs/frequent_itemsets.txt', 'w+') as f:
 		for k_itemset in frequent_items:

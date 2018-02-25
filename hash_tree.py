@@ -168,7 +168,6 @@ def generate_subsets(transaction, k):
 	
 	return res
 
-
 if __name__=='__main__':
 	temp_list=[[1,2,3],[2,3,4],[3,5,6],[4,5,6],[5,7,9],[7,8,9],[4,7,9]]
 	t=Tree(temp_list_1, k=3, max_leaf_size=3, depth=0)
