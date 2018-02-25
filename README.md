@@ -18,7 +18,7 @@ Course Assignment for CS F415- Data Mining @ BITS Pilani, Hyderabad Campus.
 * [Prescribed format of output](#prescribed-format-of-output)
     * [Association Rules](#association-rules)
     * [Frequent itemsets](#frequent-itemsets)
-* [Machine specs:](#machine-specs-)
+* [Machine specs](#machine-specs-)
 * [Results](#results)
 * [Members](#members)
 
@@ -73,7 +73,7 @@ A mapping was created from the unique items in the dataset to integers so that e
 The entire data was mapped to integers to reduce the storage and computational requirement.
 A reverse mapping was created from the integers to the items, so that the item names could be written in the final output file.
 
-## Directory Structure:
+## Directory Structure
 ```
 association-rule-mining-apriori/
 +-- data
@@ -102,7 +102,7 @@ Frequent itemset (support count)
 ```
 
 
-## Machine specs:
+## Machine specs
 Processor: i7-7500U
 
 Ram: 16 GB DDR4
@@ -113,10 +113,10 @@ OS: Ubuntu 16.04 LTS
 
 | Confidence/Support | No. of itemsets | No of rules |
 |---------------------|-------|--------|
-| High confidence(MIN_CONF=0.5) High support(MINSUP=60)               | 725  |  60      |
-| Low confidence(MIN_CONF=0.1) High support(MINSUP=60)              | 725   |    1189    |
-| High confidence(MIN_CONF=0.5) Low support(MINSUP=10)              | 11390   |    4187    |
-| Low confidence(MIN_CONF=0.1) Low support(MINSUP=10)              | 11390   |    35196    |
+| High confidence(MIN_CONF=0.5) High support count(MINSUP=60)               | 725  |  60      |
+| Low confidence(MIN_CONF=0.1) High support count(MINSUP=60)              | 725   |    1189    |
+| High confidence(MIN_CONF=0.5) Low support count(MINSUP=10)              | 11390   |    4187    |
+| Low confidence(MIN_CONF=0.1) Low support count(MINSUP=10)              | 11390   |    35196    |
 
 All the frequent itemsets and rules generated using the above mentioned configurations can be found in the 'results' folder.
 

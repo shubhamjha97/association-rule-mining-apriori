@@ -10,7 +10,6 @@ MINSUP = 60 # Minimum support
 HASH_DENOMINATOR = 10 # Denominator of the hash function
 MIN_CONF = 0.5 # Minimum confidence
 
-
 # Timig decorator. Used to measure exeecution time of functions.
 def timeit(fn):
 	def wrapper(*args, **kwargs):
