@@ -4,20 +4,12 @@ from time import time
 import pickle
 import os
 from hash_tree import Tree, generate_subsets
+from timing_wrapper import timeit
 
 # Important variables
 MINSUP = 60 # Minimum support
 HASH_DENOMINATOR = 10 # Denominator of the hash function
 MIN_CONF = 0.5 # Minimum confidence
-
-# Timig decorator. Used to measure exeecution time of functions.
-def timeit(fn):
-	def wrapper(*args, **kwargs):
-		start = time()
-		res = fn(*args, **kwargs)
-		print(fn.__name__, "took", time() - start, "seconds.")
-		return res
-	return wrapper
 
 @timeit
 def load_data(path):
