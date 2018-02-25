@@ -83,7 +83,7 @@ class Tree:
 		'''
 		for child in self.children:
 			if len(self.children[child].children) > self.max_leaf_size:
-				if self.depth+1 < self.c_length:
+				if self.depth+1 < self.c_length: # Make sure that only fewer than k divisions are performed
 					child=Tree(list(self.children[child].children.keys()), k=self.k, max_leaf_size=self.max_leaf_size, depth=self.depth+1)
 
 	def build_tree(self, c_list):
@@ -135,7 +135,7 @@ class Tree:
 
 def generate_subsets(transaction, k):
 	'''
-		Function to generate k subsets of the transaction.
+		Function to recursively generate k subsets of the transaction.
 
 		Parameters
 		----------
@@ -154,6 +154,9 @@ def generate_subsets(transaction, k):
 	transaction.sort()
 
 	def recurse(transaction, k, i=0, curr=[]):
+		'''
+		Recursion function used in subset generation
+		'''
 		if k==1:
 			for j in range(i,n):
 				res.append(curr + [transaction[j]])
